@@ -1,5 +1,6 @@
-version: 2.1orbs:
-  cypress: cypress-io/cypress@3.3.1jobs:
+version: 2.1
+  orbs:
+    cypress: cypress-io/cypress@3.3.1jobs:
   start-server:
         docker:
           - image: cypress/base:latest
@@ -19,7 +20,7 @@ version: 2.1orbs:
           name: Deploy to Render Staging
           command: |
             echo "Deploying to Render Staging"
-            curl $RENDER_STAGING_DEPLOYHOOK
+            curl $RENDER_STAGING_DEPLOYHOOKworkflows:
   run-tests-and-deploy-to-staging:
     jobs:
       - start-server
