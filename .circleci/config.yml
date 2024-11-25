@@ -31,10 +31,10 @@ workflows:
       - start-server
       - cypress/run:
           name: run-component-tests
-          command: npx cypress run --component
+          cypress-command: npx cypress run --component
       - deploy-to-staging:
           requires:
             - run-component-tests
-        filters:
-          branches:
-            only: main
+          filters:
+            branches:
+              only: main
