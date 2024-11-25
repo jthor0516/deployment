@@ -10,31 +10,31 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Install Deps
-        command: npm install
-      -run: 
-        name: build
-        command: npm run build
+          name: Install Deps
+          command: npm install
+      - run: 
+          name: build
+          command: npm run build
   deploy-to-staging:
     docker:
       - image: cimg/base:current
       steps:
         - run:
-          name: deploy to staging
-          command: |
-            echo "deploying to staging environment"
-            curl $RENDER_STAGING_DEPLOYHOOK
+            name: deploy to staging
+            command: |
+              echo "deploying to staging environment"
+              curl $RENDER_STAGING_DEPLOYHOOK
       
 workflows:
   run-tests-and-stage-workflow:
     jobs:
       - start-server
       - cypress/run:
-        name: run-component-tests
-        command: npx cypress run --component
+          name: run-component-tests
+          command: npx cypress run --component
       - deploy-to-staging:
-        requires:
-          - run-component-tests
+          requires:
+            - run-component-tests
         filters:
           branches:
             only: main
