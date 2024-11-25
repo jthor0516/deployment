@@ -16,14 +16,14 @@ jobs:
           name: build
           command: npm run build
   deploy-to-staging:
-      docker:
-        - image: cimg/base:current
-      steps:
-        - run:
-            name: deploy to staging
-            command: |
-              echo "deploying to staging environment"
-              curl $RENDER_STAGING_DEPLOYHOOK
+    docker:
+      - image: cimg/base:current
+    steps:
+      - run:
+          name: deploy to staging
+          command: |
+            echo "deploying to staging environment"
+            curl $RENDER_STAGING_DEPLOYHOOK
       
 workflows:
   run-tests-and-stage-workflow:
