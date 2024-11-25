@@ -19,7 +19,7 @@ version: 2.1orbs:
           name: Deploy to Render Staging
           command: |
             echo "Deploying to Render Staging"
-            curl $RENDER_STAGING_DEPLOYHOOKworkflows:
+            curl $RENDER_STAGING_DEPLOYHOOK
   run-tests-and-deploy-to-staging:
     jobs:
       - start-server
