@@ -16,7 +16,7 @@ jobs:
           name: build
           command: npm run build
   deploy-to-staging:
-    docker:
+      docker:
         - image: cimg/base:current
       steps:
         - run:
