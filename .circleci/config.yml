@@ -26,7 +26,7 @@ jobs:
     docker:
       - image: cimg/base:current
     steps:
-      -run:
+      - run:
           name: Deploy to Render Productions
           command: |
             echo "Deploying to Render Staging"
