@@ -48,12 +48,10 @@ workflows:
             branches:
               only: main
       - hold:
-          
           type: approval
           requires:
             - deploy-to-render-staging
-      - deploy-to-render-production:
-          
+      - deploy-to-render-production:  
           requires:
             - hold
           filters:
